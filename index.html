@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced Floating Label Input</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <form class="form fade-in">
+    <div class="field">
+      <input
+        type="email"
+        id="email"
+        placeholder=" "
+        required
+      >
+      <label for="email">Email</label>
+
+      <span class="status success">✔ Валидный email</span>
+      <span class="status error">✖ Неверный email</span>
+
+      <div class="liquid"></div>
+    </div>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>

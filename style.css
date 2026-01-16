@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0f1220;
+  color: white;
+}
+
+/* =====================
+   FORM ANIMATION
+===================== */
+.fade-in {
+  animation: fadeBlur 0.8s ease forwards;
+}
+
+@keyframes fadeBlur {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+/* =====================
+   FIELD
+===================== */
+.field {
+  position: relative;
+  width: 320px;
+}
+
+input {
+  width: 100%;
+  padding: 18px 14px;
+  font-size: 16px;
+  color: white;
+  background: transparent;
+  border-radius: 10px;
+  border: 2px solid #444;
+  outline: none;
+  z-index: 2;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+/* GLOW */
+input:focus {
+  border-color: #6cf;
+  box-shadow: 0 0 20px rgba(102,204,255,0.6);
+}
+
+/* GRADIENT TEXT */
+input:focus {
+  background-image: linear-gradient(90deg, #6cf, #c77dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =====================
+   LABEL
+===================== */
+label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+  pointer-events: none;
+  transition: 0.4s ease;
+  backdrop-filter: blur(0);
+}
+
+/* FLOAT + BLUR */
+input:focus + label,
+input:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 12px;
+  color: #6cf;
+  backdrop-filter: blur(6px);
+}
+
+/* =====================
+   STATUS MESSAGES
+===================== */
+.status {
+  position: absolute;
+  left: 0;
+  bottom: -22px;
+  font-size: 12px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.status.success {
+  color: #4ade80;
+}
+
+.status.error {
+  color: #f87171;
+}
+
+/* =====================
+   LIQUID BACKGROUND
+===================== */
+.liquid {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(102,204,255,0.35),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.field:hover .liquid {
+  opacity: 1;
+}
+
+/* =====================
+   ERROR SHAKE
+===================== */
+.field.error input {
+  border-color: #f87171;
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.field.error .status.error {
+  opacity: 1;
+}
+
+.field.success .status.success {
+  opacity: 1;
+}
