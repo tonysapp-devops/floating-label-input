@@ -31,7 +31,7 @@ An interactive UI input component with a floating label and modern visual effect
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 project/
@@ -185,7 +185,7 @@ Free to use for both educational and commercial projects.
 
 ## Author
 
-Anton Sayapin
+Tony Sapp
 
 Frontend / UI Developer
 
